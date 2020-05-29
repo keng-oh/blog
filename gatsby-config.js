@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Now Updating...`,
+    title: `KENZINE`,
     author: `Keng`,
     description: ``,
     siteUrl: `https://blog.ken-g.dev/`,
     social: {
       twitter: `sbkenjiakg_`,
+      github: `keng-oh`,
+      qiita: `keng`,
     },
   },
   plugins: [
