@@ -1,77 +1,62 @@
 import React from "react"
-import { Link } from "gatsby"
 
-import { rhythm, scale } from "../utils/typography"
+import Header from "./Header"
+import Bio from "./bio"
 
-class Layout extends React.Component {
-  render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+import Grid from "@material-ui/core/Grid"
+import Container from "@material-ui/core/Container"
+import { makeStyles } from "@material-ui/core/styles"
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
+import CssBaseline from "@material-ui/core/CssBaseline"
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.2),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
-    return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <header>{header}</header>
-        <main>{children}</main>
-        <footer>
-          © Keng {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>, powered by
-          {` `}
-          <a href="https://www.netlify.com/">Netlify</a>
+const useStyles = makeStyles(theme => ({
+  footer: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+  },
+}))
+
+const theme = createMuiTheme({
+  palette: {
+    type: "dark",
+  },
+})
+
+const Layout = props => {
+  const { title, children } = props
+  const classes = useStyles()
+
+  return (
+    <MuiThemeProvider theme={theme} height="100%">
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <header>
+          <Header title={title} />
+        </header>
+        <main>
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={8}>
+              <Grid
+                container
+                direction="column"
+                justify="space-between"
+                alignItems="stretch"
+                spacing={4}
+              >
+                {children}
+              </Grid>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Bio />
+            </Grid>
+          </Grid>
+        </main>
+        <footer className={classes.footer}>
+          {title} © Keng {new Date().getFullYear()}.
         </footer>
-      </div>
-    )
-  }
+      </Container>
+    </MuiThemeProvider>
+  )
 }
 
 export default Layout

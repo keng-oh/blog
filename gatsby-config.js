@@ -4,11 +4,6 @@ module.exports = {
     author: `Keng`,
     description: ``,
     siteUrl: `https://blog.ken-g.dev/`,
-    social: {
-      twitter: `sbkenjiakg_`,
-      github: `keng-oh`,
-      qiita: `keng`,
-    },
   },
   plugins: [
     {
@@ -91,6 +86,14 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.API_KEY,
+        serviceId: process.env.SERVICE_ID,
+        endpoint: "articles",
       },
     },
   ],

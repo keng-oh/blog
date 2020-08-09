@@ -1,77 +1,49 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
 
-import { rhythm } from "../utils/typography"
+import Typography from "@material-ui/core/Typography"
+import Link from "@material-ui/core/Link"
+import Grid from "@material-ui/core/Grid"
+
+import GitHubIcon from "@material-ui/icons/GitHub"
+import TwitterIcon from "@material-ui/icons/Twitter"
 
 const Bio = () => {
-  const data = useStaticQuery(graphql`
-    query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-icon.png/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      site {
-        siteMetadata {
-          author
-          social {
-            twitter
-            github
-            qiita
-          }
-        }
-      }
-    }
-  `)
+  const social = [
+    {
+      mediaName: "GitHub",
+      icon: GitHubIcon,
+      userName: "keng-oh",
+      link: "https://github.com",
+    },
+    {
+      mediaName: "Twitter",
+      icon: TwitterIcon,
+      userName: "sbkenjiakg_",
+      link: "https://twitter.com",
+    },
+  ]
 
-  const { author, social } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        //marginBottom: rhythm(2.5),
-      }}
-    >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
-      <p>
-        Written by <strong>{author}</strong>
-        <br/>
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          Twitter
-        </a>
-        {` `}
-        <a href={`https://github.com/${social.github}`}>
-          GitHub
-        </a>
-        {` `}
-        <a href={`https://qiita.com/${social.qiita}`}>
-          Qiita
-        </a>
-      </p>
-    </div>
+    <Grid display="flex">
+      <Typography variant="h6" gutterBottom>
+        Social
+      </Typography>
+      {social.map(network => (
+        <Link
+          variant="body1"
+          href={network.link + "/" + network.userName}
+          key={network}
+          color="inherit"
+        >
+          <Grid container direction="row" spacing={1} alignItems="center">
+            <Grid item>
+              <network.icon />
+            </Grid>
+            <Grid item>{network.userName}</Grid>
+          </Grid>
+        </Link>
+      ))}
+    </Grid>
   )
 }
 
