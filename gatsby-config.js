@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `KENZINE`,
@@ -91,8 +95,8 @@ module.exports = {
     {
       resolve: "gatsby-source-microcms",
       options: {
-        apiKey: process.env.API_KEY,
-        serviceId: process.env.SERVICE_ID,
+        apiKey: process.env.NETLIFY_API_KEY,
+        serviceId: process.env.NETLIFY_SERVICE_ID,
         endpoint: "articles",
       },
     },
