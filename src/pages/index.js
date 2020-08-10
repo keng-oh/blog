@@ -8,7 +8,7 @@ import Articles from "../components/articles"
 const BlogIndex = props => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
-  const articles = data.allMicrocmsArticles.edges
+  const articles = data.allMicrocmsArticles.nodes
 
   return (
     <>
@@ -26,14 +26,28 @@ export default BlogIndex
 
 export const query = graphql`
   {
-    allMicrocmsArticles(sort: { fields: [createdAt], order: DESC }) {
-      edges {
-        node {
-          id
-          title
-          body
-          createdAt
+    allMicrocmsArticles(sort: { fields: [createdAt], order: DESC }, limit: 5) {
+      nodes {
+        id
+        title
+        description
+        thumbnail {
+          url
         }
+        category {
+          id
+          name
+        }
+        articlesId
+        body
+        publishedAt
+      }
+    }
+    allMicrocmsCategories {
+      nodes {
+        id
+        categoriesId
+        name
       }
     }
     site {

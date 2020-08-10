@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
+import Moment from "react-moment"
+
 import { makeStyles } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
@@ -29,31 +30,36 @@ const Articles = props => {
   return (
     <Grid item>
       <CardActionArea component="div" disableRipple>
-        <Link to={article.node.id}>
+        <Link to={article.id}>
           <Card className={classes.card}>
             <div className={classes.cardDetails}>
               <CardContent>
                 <Typography component="h2" variant="h5">
-                  {article.node.title}
+                  {article.title}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  {article.node.createdAt}
+                  <Moment format="YYYY/MM/DD" date={article.publishedAt} />
                 </Typography>
                 <Typography variant="subtitle1" paragraph>
-                  {article.node.body}
+                  {article.description}
                 </Typography>
-                <Typography variant="subtitle1" color="primary">
-                  Continue reading...
+                <Typography variant="subtitle1" paragraph>
+                  {article.category.map(category => category.name)}
                 </Typography>
+                <Typography variant="subtitle1">Continue reading...</Typography>
               </CardContent>
             </div>
-            <Hidden xsDown>
-              <CardMedia
-                className={classes.cardMedia}
-                image={article.image}
-                title={article.imageTitle}
-              />
-            </Hidden>
+            {article.thumbnail ? (
+              <Hidden xsDown>
+                <CardMedia
+                  className={classes.cardMedia}
+                  image={article.thumbnail.url}
+                  title={article.imageTitle}
+                />
+              </Hidden>
+            ) : (
+              <></>
+            )}
           </Card>
         </Link>
       </CardActionArea>

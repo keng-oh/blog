@@ -27,7 +27,7 @@ const Layout = props => {
   const classes = useStyles()
 
   return (
-    <MuiThemeProvider theme={theme} height="100%">
+    <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
         <header>
@@ -35,7 +35,7 @@ const Layout = props => {
         </header>
         <main>
           <Grid container spacing={4}>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={9}>
               <Grid
                 container
                 direction="column"
@@ -46,7 +46,7 @@ const Layout = props => {
                 {children}
               </Grid>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={3}>
               <Bio />
             </Grid>
           </Grid>

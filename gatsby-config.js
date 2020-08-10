@@ -99,5 +99,13 @@ module.exports = {
         endpoint: "articles",
       },
     },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.NETLIFY_API_KEY,
+        serviceId: process.env.NETLIFY_SERVICE_ID,
+        endpoint: "categories",
+      },
+    },
   ],
 }
