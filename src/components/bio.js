@@ -46,12 +46,12 @@ const Bio = () => {
   return (
     <>
       <Grid display="flex">
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom color="primary">
           About
         </Typography>
       </Grid>
       <Grid display="flex">
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom color="primary">
           Social
         </Typography>
         {social.map(network => (
@@ -75,6 +75,7 @@ const Bio = () => {
           variant="h6"
           gutterBottom
           className={classes.sidebarSection}
+          color="primary"
         >
           Category
         </Typography>
@@ -96,6 +97,7 @@ const Bio = () => {
           variant="h6"
           gutterBottom
           className={classes.sidebarSection}
+          color="primary"
         >
           Aechive
         </Typography>
