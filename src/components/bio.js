@@ -12,6 +12,11 @@ import TwitterIcon from "@material-ui/icons/Twitter"
 const useStyles = makeStyles(theme => ({
   sidebarSection: {
     marginTop: theme.spacing(3),
+    color: theme.palette.primary.main,
+  },
+  sidebarAboutBox: {
+    padding: theme.spacing(2),
+    // backgroundColor: theme.palette.primary.main,
   },
 }))
 
@@ -49,9 +54,14 @@ const Bio = () => {
         <Typography variant="h6" gutterBottom color="primary">
           About
         </Typography>
+        <Typography>TODO: 自己紹介</Typography>
       </Grid>
       <Grid display="flex">
-        <Typography variant="h6" gutterBottom color="primary">
+        <Typography
+          variant="h6"
+          gutterBottom
+          className={classes.sidebarSection}
+        >
           Social
         </Typography>
         {social.map(network => (
@@ -75,7 +85,6 @@ const Bio = () => {
           variant="h6"
           gutterBottom
           className={classes.sidebarSection}
-          color="primary"
         >
           Category
         </Typography>
@@ -97,10 +106,14 @@ const Bio = () => {
           variant="h6"
           gutterBottom
           className={classes.sidebarSection}
-          color="primary"
         >
           Aechive
         </Typography>
+        <Link variant="body1" href="/.." color="inherit">
+          <Grid container direction="row" spacing={1} alignItems="center">
+            <Grid item>記事一覧へ</Grid>
+          </Grid>
+        </Link>
       </Grid>
     </>
   )

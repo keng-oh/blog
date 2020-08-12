@@ -13,6 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
               createdAt
               title
               body
+              articlesId
             }
           }
         }
@@ -29,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   posts.forEach((post, index) => {
     createPage({
-      path: post.node.id,
+      path: post.node.articlesId,
       component: path.resolve("./src/templates/blog-post.js"),
       context: {
         id: post.node.id,

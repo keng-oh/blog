@@ -15,7 +15,7 @@ const BlogIndex = props => {
       <SEO title="TOP" />
       <Layout location={props.location} title={siteTitle}>
         {articles.map(article => (
-          <Articles key={article.id} article={article} />
+          <Articles key={article.articlesId} article={article} />
         ))}
       </Layout>
     </>

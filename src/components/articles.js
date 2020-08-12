@@ -42,7 +42,7 @@ const Articles = props => {
   return (
     <Grid item>
       <CardActionArea component="div" disableRipple>
-        <Link to={article.id}>
+        <Link to={article.articlesId}>
           <Card className={classes.card}>
             <CardContent className={classes.cardDetails}>
               <Typography component="h2" variant="h5">

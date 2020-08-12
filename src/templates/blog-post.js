@@ -80,6 +80,7 @@ export const query = graphql`
       body
       publishedAt
       description
+      articlesId
       category {
         name
       }
