@@ -7,18 +7,11 @@ const renderOgImage = ({ title }) => {
           <html>
             <head>
               <meta charset="utf-8">
-              <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
-              <style>
-                body {
-                  padding: 0;
-                  margin: 0;
-                }
-                .wf-mplus1p {
-                  font-family: "M PLUS 1p";
-                }
-              </stle>
             </head>
-            <body>
+            <body style="
+              padding: 0;
+              margin: 0;
+            ">
               <div style="
                 width: 1200px;
                 height: 590px;
@@ -29,8 +22,8 @@ const renderOgImage = ({ title }) => {
                 justify-content: center;
                 border-bottom: 40px solid #6D757F;
               ">
-                <div class="wf-mplus1p" style="font-size: 60px; font-weight: bold; margin: 0 40px;">${title}</div>
-                <div class="wf-mplus1p" style="font-size: 48px; margin: 160px 40px 0 auto;">https://blog.ken-g.dev/</div>
+                <div style="font-family: sans-serif; font-size: 60px; font-weight: bold; margin: 0 40px;">${title}</div>
+                <div style="font-family: serif; font-size: 48px; margin: 160px 40px 0 auto;">https://blog.ken-g.dev/</div>
               </div>
             </body>
           </html>`
