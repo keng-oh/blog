@@ -137,6 +137,7 @@ module.exports = {
     {
       resolve: `@akr4/gatsby-plugin-og-image`,
       options: {
+        siteUrl: `https://blog.ken-g.dev/`,
         render: renderOgImage,
         concurrency: 10,
       },
