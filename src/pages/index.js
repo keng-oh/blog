@@ -16,12 +16,7 @@ const BlogIndex = props => {
     <>
       <SEO title="TOP" />
       <Layout location={props.location} title={siteTitle}>
-        <Grid
-          container
-          justify="space-between"
-          alignItems="stretch"
-          spacing={4}
-        >
+        <Grid container justify="flex-start" alignItems="stretch" spacing={4}>
           {articles.map(article => (
             <Articles key={article.articlesId} article={article} />
           ))}

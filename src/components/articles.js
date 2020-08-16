@@ -10,19 +10,18 @@ import Chip from "@material-ui/core/Chip"
 import CardActionArea from "@material-ui/core/CardActionArea"
 import CardContent from "@material-ui/core/CardContent"
 import CardMedia from "@material-ui/core/CardMedia"
-import Hidden from "@material-ui/core/Hidden"
 
 import LocalOfferIcon from "@material-ui/icons/LocalOffer"
 
 const useStyles = makeStyles(theme => ({
-  card: {
-    display: "flex",
+  root: {
+    width: "100%",
   },
-  cardDetails: {
-    flex: 1,
+  card: {
+    height: "100%",
   },
   cardMedia: {
-    width: 160,
+    height: 140,
   },
   cardTags: {
     marginLeft: theme.spacing(1),
@@ -40,12 +39,17 @@ const Articles = props => {
   const { article } = props
 
   return (
-    <Grid item sm={6}>
-      <CardActionArea component="div" disableRipple>
+    <Grid item sm={6} className={classes.root}>
+      <CardActionArea component="div" className={classes.card}>
         <Link to={article.articlesId}>
-          <Card className={classes.card}>
-            <CardContent className={classes.cardDetails}>
-              <Typography component="h2" variant="h5">
+          <Card className={classes.card} raised={true}>
+            <CardMedia
+              className={classes.cardMedia}
+              image={article.thumbnail.url}
+              title={article.imageTitle}
+            />
+            <CardContent>
+              <Typography component="h2" variant="h6">
                 {article.title}
               </Typography>
               <Typography
@@ -79,17 +83,6 @@ const Articles = props => {
                 {article.description}
               </Typography>
             </CardContent>
-            {article.thumbnail ? (
-              <Hidden xsDown>
-                <CardMedia
-                  className={classes.cardMedia}
-                  image={article.thumbnail.url}
-                  title={article.imageTitle}
-                />
-              </Hidden>
-            ) : (
-              <></>
-            )}
           </Card>
         </Link>
       </CardActionArea>
