@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },
+  content: {
+    width: "100%",
+  },
 }))
 
 const theme = createMuiTheme({
@@ -45,7 +48,7 @@ const Layout = props => {
         </header>
         <main>
           <Grid container spacing={4}>
-            <Grid item lg={9}>
+            <Grid item lg={9} className={classes.content}>
               {children}
             </Grid>
             <Grid item lg={3}>

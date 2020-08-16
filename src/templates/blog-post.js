@@ -9,11 +9,12 @@ import Typography from "@material-ui/core/Typography"
 import Divider from "@material-ui/core/Divider"
 import { makeStyles } from "@material-ui/core/styles"
 import Chip from "@material-ui/core/Chip"
+import Container from "@material-ui/core/Container"
 import LocalOfferIcon from "@material-ui/icons/LocalOffer"
 
 const useStyles = makeStyles(theme => ({
   article: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(0),
   },
   divider: {
     marginBottom: theme.spacing(2),
@@ -21,6 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
   postTags: { marginLeft: theme.spacing(1) },
   postTag: { marginLeft: theme.spacing(0.5) },
+  articleInfo: { padding: theme.spacing(0), marginBottom: theme.spacing(1) },
 }))
 
 const BlogPostTemplate = props => {
@@ -34,32 +36,34 @@ const BlogPostTemplate = props => {
       <SEO title={post.title} description={post.title || post.excerpt} />
       <Layout location={props.location} title={siteTitle}>
         <article className={classes.article}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h5" gutterBottom>
             {post.title}
           </Typography>
-          <Typography
-            variant="subtitle1"
-            component="span"
-            color="textSecondary"
-          >
-            <Moment format="YYYY/MM/DD" date={post.publishedAt} />
-          </Typography>
-          <Typography
-            variant="inherit"
-            color="textSecondary"
-            className={classes.postTags}
-          >
-            {post.category.map(category => (
-              <Chip
-                icon={<LocalOfferIcon />}
-                variant="outlined"
-                size="small"
-                color="primary"
-                label={category.name}
-                className={classes.postTag}
-              />
-            ))}
-          </Typography>
+          <Container className={classes.articleInfo}>
+            <Typography
+              variant="subtitle1"
+              component="span"
+              color="textSecondary"
+            >
+              <Moment format="YYYY/MM/DD" date={post.publishedAt} />
+            </Typography>
+            <Typography
+              variant="inherit"
+              color="textSecondary"
+              className={classes.postTags}
+            >
+              {post.category.map(category => (
+                <Chip
+                  icon={<LocalOfferIcon />}
+                  variant="outlined"
+                  size="small"
+                  color="primary"
+                  label={category.name}
+                  className={classes.postTag}
+                />
+              ))}
+            </Typography>
+          </Container>
           <Typography variant="subtitle1" gutterBottom>
             {post.description}
           </Typography>
