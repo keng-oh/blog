@@ -45,18 +45,10 @@ const Layout = props => {
         </header>
         <main>
           <Grid container spacing={4}>
-            <Grid item xs={12} md={9}>
-              <Grid
-                container
-                direction="column"
-                justify="space-between"
-                alignItems="stretch"
-                spacing={4}
-              >
-                {children}
-              </Grid>
+            <Grid item lg={9}>
+              {children}
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item lg={3}>
               <Bio />
             </Grid>
           </Grid>

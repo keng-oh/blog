@@ -40,7 +40,7 @@ const Articles = props => {
   const { article } = props
 
   return (
-    <Grid item>
+    <Grid item sm={6}>
       <CardActionArea component="div" disableRipple>
         <Link to={article.articlesId}>
           <Card className={classes.card}>

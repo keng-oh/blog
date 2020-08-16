@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import Grid from "@material-ui/core/Grid"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Articles from "../components/articles"
@@ -14,9 +16,16 @@ const BlogIndex = props => {
     <>
       <SEO title="TOP" />
       <Layout location={props.location} title={siteTitle}>
-        {articles.map(article => (
-          <Articles key={article.articlesId} article={article} />
-        ))}
+        <Grid
+          container
+          justify="space-between"
+          alignItems="stretch"
+          spacing={4}
+        >
+          {articles.map(article => (
+            <Articles key={article.articlesId} article={article} />
+          ))}
+        </Grid>
       </Layout>
     </>
   )
