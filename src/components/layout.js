@@ -2,6 +2,7 @@ import React from "react"
 
 import Header from "./header"
 import Bio from "./bio"
+import Fab from "./fab"
 
 import Grid from "@material-ui/core/Grid"
 import Container from "@material-ui/core/Container"
@@ -55,6 +56,7 @@ const Layout = props => {
               <Bio />
             </Grid>
           </Grid>
+          <Fab />
         </main>
         <footer className={classes.footer}>
           {title} © Keng {new Date().getFullYear()}.
