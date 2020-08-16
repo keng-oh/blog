@@ -7,6 +7,10 @@ const renderOgImage = ({ title }) => {
           <html>
             <head>
               <meta charset="utf-8">
+              <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+              <style type="text/css">
+                .wf-notosansjapanese { font-family: "Noto Sans JP"; }
+              </style>
             </head>
             <body style="
               padding: 0;
@@ -22,8 +26,8 @@ const renderOgImage = ({ title }) => {
                 justify-content: center;
                 border-bottom: 40px solid #6D757F;
               ">
-                <div style="font-family: sans-serif; font-size: 60px; font-weight: bold; margin: 0 40px;">${title}</div>
-                <div style="font-family: serif; font-size: 48px; margin: 160px 40px 0 auto;">https://blog.ken-g.dev/</div>
+                <div class="wf-notosansjapanese" style="font-size: 60px; font-weight: bold; margin: 0 40px;">${title}</div>
+                <div class="wf-notosansjapanese" style="font-size: 48px; margin: 160px 40px 0 auto;">https://blog.ken-g.dev/</div>
               </div>
             </body>
           </html>`
