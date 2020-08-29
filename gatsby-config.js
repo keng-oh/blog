@@ -42,6 +42,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: process.env.NETLIFY_GOOGLE_ADS_ID,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.NETLIFY_GA_TRACKING_ID,
