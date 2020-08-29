@@ -38,7 +38,7 @@ module.exports = {
     title: `KENZINE`,
     author: `Keng`,
     description: ``,
-    siteUrl: `https://blog.ken-g.dev/`,
+    siteUrl: `https://ken-g.dev/`,
   },
   plugins: [
     {
@@ -94,12 +94,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
