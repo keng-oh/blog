@@ -1,8 +1,7 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link as GatsbyLink, useStaticQuery, graphql } from "gatsby"
 
 import Typography from "@material-ui/core/Typography"
-import Link from "@material-ui/core/Link"
 import Grid from "@material-ui/core/Grid"
 import { makeStyles } from "@material-ui/core/styles"
 
@@ -12,11 +11,16 @@ import TwitterIcon from "@material-ui/icons/Twitter"
 const useStyles = makeStyles(theme => ({
   sidebarSection: {
     marginTop: theme.spacing(3),
-    color: theme.palette.primary.main,
   },
   sidebarAboutBox: {
     padding: theme.spacing(2),
     // backgroundColor: theme.palette.primary.main,
+  },
+  gatsbyLink: {
+    color: theme.palette.link,
+    fontSize: "1.0rem",
+    textDecoration: "underline",
+    paddingBottom: "0.1rem",
   },
 }))
 
@@ -51,10 +55,12 @@ const Bio = () => {
   return (
     <>
       <Grid display="flex">
-        <Typography variant="h6" gutterBottom color="primary">
+        <Typography variant="h6" gutterBottom>
           About
         </Typography>
-        <Typography>TODO: 自己紹介</Typography>
+        <GatsbyLink className={classes.gatsbyLink} to="/about">
+          <Grid>TODO: 自己紹介</Grid>
+        </GatsbyLink>
       </Grid>
       <Grid display="flex">
         <Typography
@@ -65,11 +71,9 @@ const Bio = () => {
           Social
         </Typography>
         {social.map(network => (
-          <Link
-            variant="body1"
-            href={network.link + "/" + network.userName}
-            key={network}
-            color="inherit"
+          <GatsbyLink
+            className={classes.gatsbyLink}
+            to={network.link + "/" + network.userName}
           >
             <Grid container direction="row" spacing={1} alignItems="center">
               <Grid item>
@@ -77,7 +81,7 @@ const Bio = () => {
               </Grid>
               <Grid item>{network.userName}</Grid>
             </Grid>
-          </Link>
+          </GatsbyLink>
         ))}
       </Grid>
       <Grid display="flex">
@@ -89,16 +93,15 @@ const Bio = () => {
           Category
         </Typography>
         {allMicrocmsCategories.nodes.map(category => (
-          <Link
-            variant="body1"
-            href="/.."
+          <GatsbyLink
+            to="/.."
+            className={classes.gatsbyLink}
             key={category.categoriesId}
-            color="inherit"
           >
             <Grid container direction="row" spacing={1} alignItems="center">
               <Grid item>{category.name}</Grid>
             </Grid>
-          </Link>
+          </GatsbyLink>
         ))}
       </Grid>
       <Grid display="flex">
@@ -109,11 +112,11 @@ const Bio = () => {
         >
           Aechive
         </Typography>
-        <Link variant="body1" href="/.." color="inherit">
+        <GatsbyLink to="/.." className={classes.gatsbyLink}>
           <Grid container direction="row" spacing={1} alignItems="center">
             <Grid item>記事一覧へ</Grid>
           </Grid>
-        </Link>
+        </GatsbyLink>
       </Grid>
     </>
   )

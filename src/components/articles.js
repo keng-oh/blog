@@ -69,7 +69,6 @@ const Articles = props => {
                     icon={<LocalOfferIcon />}
                     variant="outlined"
                     size="small"
-                    color="primary"
                     label={category.name}
                     className={classes.cardTag}
                   />

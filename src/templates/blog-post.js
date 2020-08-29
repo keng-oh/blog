@@ -57,7 +57,6 @@ const BlogPostTemplate = props => {
                   icon={<LocalOfferIcon />}
                   variant="outlined"
                   size="small"
-                  color="primary"
                   label={category.name}
                   className={classes.postTag}
                 />
