@@ -14,7 +14,11 @@ const About = props => {
   return (
     <>
       <SEO title="ABOUT" />
-      <Layout location={props.location} title={siteTitle}>
+      <Layout
+        location={props.location}
+        title={siteTitle}
+        sectionTitle="About me"
+      >
         <Grid container justify="flex-start" alignItems="stretch" spacing={4}>
           <Me />
         </Grid>

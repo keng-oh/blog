@@ -1,21 +1,28 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Grid from "@material-ui/core/Grid"
+import { Grid, makeStyles } from "@material-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Articles from "../components/articles"
 
-const BlogIndex = props => {
+const useStyles = makeStyles(theme => ({}))
+
+const Archive = props => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
   const articles = data.allMicrocmsArticles.nodes
+  const classes = useStyles()
 
   return (
     <>
-      <SEO title="TOP" />
-      <Layout location={props.location} title={siteTitle} sectionTitle={"TOP"}>
+      <SEO title="ARCHIVE" />
+      <Layout
+        location={props.location}
+        title={siteTitle}
+        sectionTitle="Archive"
+      >
         <Grid container justify="flex-start" alignItems="stretch" spacing={4}>
           {articles.map(article => (
             <Articles key={article.articlesId} article={article} />
@@ -26,11 +33,11 @@ const BlogIndex = props => {
   )
 }
 
-export default BlogIndex
+export default Archive
 
 export const query = graphql`
   {
-    allMicrocmsArticles(sort: { fields: [createdAt], order: DESC }, limit: 2) {
+    allMicrocmsArticles(sort: { fields: [createdAt], order: DESC }) {
       nodes {
         id
         title

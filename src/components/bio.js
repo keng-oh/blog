@@ -110,9 +110,9 @@ const Bio = () => {
           gutterBottom
           className={classes.sidebarSection}
         >
-          Aechive
+          Archive
         </Typography>
-        <GatsbyLink to="/.." className={classes.gatsbyLink}>
+        <GatsbyLink to="/archive" className={classes.gatsbyLink}>
           <Grid container direction="row" spacing={1} alignItems="center">
             <Grid item>記事一覧へ</Grid>
           </Grid>
