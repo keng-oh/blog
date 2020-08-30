@@ -4,6 +4,10 @@ import { Link as GatsbyLink, useStaticQuery, graphql } from "gatsby"
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
 import { makeStyles } from "@material-ui/core/styles"
+import List from "@material-ui/core/List"
+import ListItem from "@material-ui/core/ListItem"
+import ListItemIcon from "@material-ui/core/ListItemIcon"
+import ListItemText from "@material-ui/core/ListItemText"
 
 import GitHubIcon from "@material-ui/icons/GitHub"
 import TwitterIcon from "@material-ui/icons/Twitter"
@@ -19,8 +23,11 @@ const useStyles = makeStyles(theme => ({
   gatsbyLink: {
     color: theme.palette.link,
     fontSize: "1.0rem",
-    textDecoration: "underline",
     paddingBottom: "0.1rem",
+    marginLeft: theme.spacing(2),
+  },
+  linkItem: {
+    margin: 0,
   },
 }))
 
@@ -59,50 +66,54 @@ const Bio = () => {
           About
         </Typography>
         <GatsbyLink className={classes.gatsbyLink} to="/about">
-          <Grid>TODO: 自己紹介</Grid>
+          TODO: 自己紹介
         </GatsbyLink>
       </Grid>
       <Grid display="flex">
-        <Typography
-          variant="h6"
-          gutterBottom
-          className={classes.sidebarSection}
-        >
+        <Typography variant="h6" className={classes.sidebarSection}>
           Social
         </Typography>
-        {social.map(network => (
-          <GatsbyLink
-            className={classes.gatsbyLink}
-            to={network.link + "/" + network.userName}
-          >
-            <Grid container direction="row" spacing={1} alignItems="center">
-              <Grid item>
-                <network.icon />
-              </Grid>
-              <Grid item>{network.userName}</Grid>
-            </Grid>
-          </GatsbyLink>
-        ))}
+        <List component="nav" aria-label="social">
+          {social.map(network => (
+            <ListItem
+              className={classes.linkItem}
+              dense={true}
+              disableGutters={true}
+            >
+              <GatsbyLink
+                className={classes.gatsbyLink}
+                to={network.link + "/" + network.userName}
+              >
+                <Typography variant="span">
+                  <network.icon />
+                  {network.userName}
+                </Typography>
+              </GatsbyLink>
+            </ListItem>
+          ))}
+        </List>
       </Grid>
       <Grid display="flex">
-        <Typography
-          variant="h6"
-          gutterBottom
-          className={classes.sidebarSection}
-        >
+        <Typography variant="h6" className={classes.sidebarSection}>
           Category
         </Typography>
-        {allMicrocmsCategories.nodes.map(category => (
-          <GatsbyLink
-            to="/.."
-            className={classes.gatsbyLink}
-            key={category.categoriesId}
-          >
-            <Grid container direction="row" spacing={1} alignItems="center">
-              <Grid item>{category.name}</Grid>
-            </Grid>
-          </GatsbyLink>
-        ))}
+        <List component="nav" aria-label="category">
+          {allMicrocmsCategories.nodes.map(category => (
+            <ListItem
+              className={classes.linkItem}
+              dense={true}
+              disableGutters={true}
+            >
+              <GatsbyLink
+                to="/.."
+                className={classes.gatsbyLink}
+                key={category.categoriesId}
+              >
+                {category.name}
+              </GatsbyLink>
+            </ListItem>
+          ))}
+        </List>
       </Grid>
       <Grid display="flex">
         <Typography
@@ -113,9 +124,7 @@ const Bio = () => {
           Archive
         </Typography>
         <GatsbyLink to="/archive" className={classes.gatsbyLink}>
-          <Grid container direction="row" spacing={1} alignItems="center">
-            <Grid item>記事一覧へ</Grid>
-          </Grid>
+          記事一覧へ
         </GatsbyLink>
       </Grid>
     </>

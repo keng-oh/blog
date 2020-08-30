@@ -19,6 +19,8 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     height: "100%",
+    backgroundColor: "#505050",
+    borderRadius: "4px",
   },
   cardMedia: {
     height: 140,
@@ -41,7 +43,7 @@ const Articles = props => {
   return (
     <Grid item sm={6} className={classes.root}>
       <CardActionArea component="div" className={classes.card}>
-        <Link to={article.articlesId}>
+        <Link to={"/" + article.articlesId}>
           <Card className={classes.card} raised={true}>
             <CardMedia
               className={classes.cardMedia}

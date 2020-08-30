@@ -3,7 +3,7 @@ import React from "react"
 import Header from "./header"
 import Bio from "./bio"
 
-import { Grid, Typography, Divider } from "@material-ui/core"
+import { Grid, Typography, Divider, Paper } from "@material-ui/core"
 import Container from "@material-ui/core/Container"
 import { makeStyles } from "@material-ui/core/styles"
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     width: "100%",
+  },
+  contentWrapper: {
+    padding: theme.spacing(2),
   },
   sectionTitle: {},
   sectionTitleDivider: {
@@ -54,18 +57,24 @@ const Layout = props => {
         <main>
           <Grid container spacing={4}>
             <Grid item lg={9} className={classes.content}>
-              <Typography
-                gutterBottom
-                variant="h5"
-                className={classes.sectionTitle}
+              <Paper
+                variant="outlined"
+                square
+                className={classes.contentWrapper}
               >
-                {sectionTitle}
-              </Typography>
-              <Divider
-                variant="fullWidth"
-                className={classes.sectionTitleDivider}
-              />
-              {children}
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  className={classes.sectionTitle}
+                >
+                  {sectionTitle}
+                </Typography>
+                <Divider
+                  variant="fullWidth"
+                  className={classes.sectionTitleDivider}
+                />
+                {children}
+              </Paper>
             </Grid>
             <Grid item lg={3}>
               <Bio />
