@@ -21,7 +21,7 @@ export default function Header(props) {
   const { title } = props
 
   return (
-    <>
+    <header>
       <Toolbar className={classes.toolbar}>
         <Typography
           component="h2"
@@ -31,6 +31,6 @@ export default function Header(props) {
           {title}
         </Typography>
       </Toolbar>
-    </>
+    </header>
   )
 }

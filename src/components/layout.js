@@ -1,19 +1,17 @@
 import React from "react"
 
 import Header from "./header"
+import ContentMain from "./contentMain"
+import Footer from "./footer"
 import Bio from "./bio"
+import SideMenu from "./sideMenu"
 
-import { Grid, Typography, Divider, Paper } from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 import Container from "@material-ui/core/Container"
-import { makeStyles } from "@material-ui/core/styles"
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
+import { makeStyles, MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 
 const useStyles = makeStyles(theme => ({
-  footer: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-  },
   content: {
     width: "100%",
   },
@@ -29,61 +27,35 @@ const useStyles = makeStyles(theme => ({
 const theme = createMuiTheme({
   palette: {
     type: "dark",
-    // background: {
-    //   paper: "#516C8D",
-    //   default: "#28385E",
-    // },
+    background: {
+      paper: "#25282c",
+      default: "#000000 ",
+    },
     primary: {
       main: "#7EC2C2",
     },
     secondary: {
       main: "#E85A70",
     },
-    link: "#5FE6FF",
+    link: "#1DA1F2",
   },
 })
 
 const Layout = props => {
-  const { title, children, sectionTitle } = props
-  const classes = useStyles()
+  const { title } = props
 
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <header>
-          <Header title={title} />
-        </header>
+        <Header title={title} />
         <main>
           <Grid container spacing={4}>
-            <Grid item lg={9} className={classes.content}>
-              <Paper
-                variant="outlined"
-                square
-                className={classes.contentWrapper}
-              >
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  className={classes.sectionTitle}
-                >
-                  {sectionTitle}
-                </Typography>
-                <Divider
-                  variant="fullWidth"
-                  className={classes.sectionTitleDivider}
-                />
-                {children}
-              </Paper>
-            </Grid>
-            <Grid item lg={3}>
-              <Bio />
-            </Grid>
+            <ContentMain {...props} />
+            <SideMenu />
           </Grid>
         </main>
-        <footer className={classes.footer}>
-          {title} © Keng {new Date().getFullYear()}.
-        </footer>
+        <Footer title={title} />
       </Container>
     </MuiThemeProvider>
   )

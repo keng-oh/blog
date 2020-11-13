@@ -1,19 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { Grid, makeStyles } from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Articles from "../components/articles"
 
-const useStyles = makeStyles(theme => ({}))
 
 const Archive = props => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
   const articles = data.allMicrocmsArticles.nodes
-  const classes = useStyles()
 
   return (
     <>
