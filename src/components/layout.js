@@ -1,45 +1,14 @@
 import React from "react"
 
+import { theme } from "../utils/theme"
+
 import Header from "./header"
 import ContentMain from "./contentMain"
-import Footer from "./footer"
-import Bio from "./bio"
 import SideMenu from "./sideMenu"
+import Footer from "./footer"
 
-import { Grid } from "@material-ui/core"
-import Container from "@material-ui/core/Container"
-import { makeStyles, MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
-import CssBaseline from "@material-ui/core/CssBaseline"
-
-const useStyles = makeStyles(theme => ({
-  content: {
-    width: "100%",
-  },
-  contentWrapper: {
-    padding: theme.spacing(2),
-  },
-  sectionTitle: {},
-  sectionTitleDivider: {
-    marginBottom: theme.spacing(1),
-  },
-}))
-
-const theme = createMuiTheme({
-  palette: {
-    type: "dark",
-    background: {
-      paper: "#25282c",
-      default: "#000000 ",
-    },
-    primary: {
-      main: "#7EC2C2",
-    },
-    secondary: {
-      main: "#E85A70",
-    },
-    link: "#1DA1F2",
-  },
-})
+import { Grid, Container, CssBaseline } from "@material-ui/core"
+import { MuiThemeProvider } from "@material-ui/core/styles"
 
 const Layout = props => {
   const { title } = props

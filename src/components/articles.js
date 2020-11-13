@@ -3,13 +3,7 @@ import { Link } from "gatsby"
 import Moment from "react-moment"
 
 import { makeStyles } from "@material-ui/core/styles"
-import Typography from "@material-ui/core/Typography"
-import Grid from "@material-ui/core/Grid"
-import Card from "@material-ui/core/Card"
-import Chip from "@material-ui/core/Chip"
-import CardActionArea from "@material-ui/core/CardActionArea"
-import CardContent from "@material-ui/core/CardContent"
-import CardMedia from "@material-ui/core/CardMedia"
+import { Typography, Grid, Card, Chip, CardActionArea, CardContent, CardMedia } from "@material-ui/core"
 
 import LocalOfferIcon from "@material-ui/icons/LocalOffer"
 
@@ -19,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     height: "100%",
-    backgroundColor: "#505050",
+    backgroundColor: theme.palette.background.paper,
     borderRadius: "4px",
   },
   cardMedia: {
