@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     height: "100%",
-    backgroundColor: theme.palette.background.paper,
     borderRadius: "4px",
   },
   cardMedia: {

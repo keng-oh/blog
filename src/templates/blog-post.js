@@ -2,6 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import Moment from "react-moment"
 
+import { theme } from "../utils/theme"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -23,6 +25,14 @@ const useStyles = makeStyles(theme => ({
   postTags: { marginLeft: theme.spacing(1) },
   postTag: { marginLeft: theme.spacing(0.5) },
   articleInfo: { padding: theme.spacing(0), marginBottom: theme.spacing(1) },
+  postBody: {
+    '& blockquote': {
+
+    },
+    '& a': {
+      color: theme.palette.link,
+    }
+  }
 }))
 
 const BlogPostTemplate = props => {
@@ -67,7 +77,7 @@ const BlogPostTemplate = props => {
             {post.description}
           </Typography>
           <Divider className={classes.divider} />
-          <section dangerouslySetInnerHTML={{ __html: post.body }} />
+          <section dangerouslySetInnerHTML={{ __html: post.body }} className={classes.postBody}/>
         </article>
       </Layout>
     </>

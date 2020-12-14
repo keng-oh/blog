@@ -27,7 +27,7 @@ const renderOgImage = ({ title }) => {
                 border-bottom: 40px solid #6D757F;
               ">
                 <div class="wf-notosansjapanese" style="font-size: 60px; font-weight: bold; margin: 0 40px;">${title}</div>
-                <div class="wf-notosansjapanese" style="font-size: 48px; margin: 160px 40px 0 auto;">https://blog.ken-g.dev/</div>
+                <div class="wf-notosansjapanese" style="font-size: 48px; margin: 160px 40px 0 auto;">https://ken-g.dev/</div>
               </div>
             </body>
           </html>`

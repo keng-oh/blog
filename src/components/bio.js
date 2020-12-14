@@ -13,10 +13,8 @@ const useStyles = makeStyles(theme => ({
   },
   sidebarAboutBox: {
     padding: theme.spacing(2),
-    // backgroundColor: theme.palette.primary.main,
   },
   gatsbyLink: {
-    color: theme.palette.link,
     fontSize: "1.0rem",
     paddingBottom: "0.1rem",
     marginLeft: theme.spacing(2),
