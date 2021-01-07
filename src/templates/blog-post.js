@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
   postTag: { marginLeft: theme.spacing(0.5) },
   articleInfo: { padding: theme.spacing(0), marginBottom: theme.spacing(1) },
   postBody: {
+    fontSize: '1rem',
     '& blockquote': {
 
     },
