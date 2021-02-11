@@ -2,13 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 import Moment from "react-moment"
 
-import { theme } from "../utils/theme"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import Typography from "@material-ui/core/Typography"
-import Divider from "@material-ui/core/Divider"
 import { makeStyles } from "@material-ui/core/styles"
 import Chip from "@material-ui/core/Chip"
 import Container from "@material-ui/core/Container"
@@ -62,8 +59,9 @@ const BlogPostTemplate = props => {
               color="textSecondary"
               className={classes.postTags}
             >
-              {post.category.map(category => (
+              {post.category.map((category, index) => (
                 <Chip
+                  key={index}
                   icon={<LocalOfferIcon />}
                   variant="outlined"
                   size="small"

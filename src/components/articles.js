@@ -56,8 +56,9 @@ const Articles = props => {
                 color="textSecondary"
                 className={classes.cardTags}
               >
-                {article.category.map(category => (
+                {article.category.map((category,index) => (
                   <Chip
+                    key={index}
                     icon={<LocalOfferIcon />}
                     variant="outlined"
                     size="small"

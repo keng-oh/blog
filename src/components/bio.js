@@ -67,8 +67,9 @@ const Bio = () => {
           Social
         </Typography>
         <List component="nav" aria-label="social">
-          {social.map(network => (
+          {social.map((network, index) => (
             <ListItem
+              key={index}
               className={classes.linkItem}
               dense={true}
               disableGutters={true}
@@ -77,7 +78,7 @@ const Bio = () => {
                 className={classes.gatsbyLink}
                 to={network.link + "/" + network.userName}
               >
-                <Typography variant="span">
+                <Typography>
                   <network.icon />
                   {network.userName}
                 </Typography>
@@ -91,8 +92,9 @@ const Bio = () => {
           Category
         </Typography>
         <List component="nav" aria-label="category">
-          {allMicrocmsCategories.nodes.map(category => (
+          {allMicrocmsCategories.nodes.map((category, index) => (
             <ListItem
+              key={index}
               className={classes.linkItem}
               dense={true}
               disableGutters={true}
