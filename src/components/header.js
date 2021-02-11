@@ -2,7 +2,6 @@ import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
-import DarkModeButton from "./darkModeButton"
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -31,7 +30,6 @@ export default function Header(props) {
         >
           {title}
         </Typography>
-        <DarkModeButton />
       </Toolbar>
     </header>
   )

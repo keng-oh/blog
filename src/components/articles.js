@@ -34,7 +34,7 @@ const Articles = props => {
   const { article } = props
 
   return (
-    <Grid item sm={6} className={classes.root}>
+    <Grid item sm={4} className={classes.root}>
       <CardActionArea component="div" className={classes.card}>
         <Link to={"/" + article.articlesId}>
           <Card className={classes.card} raised={true}>
@@ -44,9 +44,6 @@ const Articles = props => {
               title={article.imageTitle}
             />
             <CardContent>
-              <Typography component="h2" variant="h6">
-                {article.title}
-              </Typography>
               <Typography
                 variant="subtitle1"
                 component="span"
@@ -69,12 +66,8 @@ const Articles = props => {
                   />
                 ))}
               </Typography>
-              <Typography
-                variant="subtitle1"
-                className={classes.cardDiscription}
-                paragraph
-              >
-                {article.description}
+              <Typography component="h2" variant="h6">
+                {article.title}
               </Typography>
             </CardContent>
           </Card>

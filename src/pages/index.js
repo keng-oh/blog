@@ -30,7 +30,7 @@ export default BlogIndex
 
 export const query = graphql`
   {
-    allMicrocmsArticles(sort: { fields: [createdAt], order: DESC }, limit: 2) {
+    allMicrocmsArticles(sort: { fields: [createdAt], order: DESC }, limit: 9) {
       nodes {
         id
         title
