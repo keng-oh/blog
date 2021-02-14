@@ -1,4 +1,5 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
@@ -27,6 +28,9 @@ const useStyles = makeStyles(theme => ({
   toolbarAvater: {
     position: "absolute",
     right: "0",
+    '& > img': {
+      marginBottom: '0',
+    }
   },
   themeModeButton: {
     position: "absolute",
@@ -37,6 +41,22 @@ const useStyles = makeStyles(theme => ({
 export default function Header(props) {
   const classes = useStyles()
   const { title } = props
+
+  const { image } = useStaticQuery(
+    graphql`
+      query {
+        image: file(relativePath: { eq: "keng_icon1.jpeg" }) {
+          relativePath
+          name
+          childImageSharp {
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `
+  )
 
   const onToggleClick = e => {
     e.preventDefault();
@@ -53,7 +73,7 @@ export default function Header(props) {
         >
           {title}
         </Typography>
-        <Avatar className={classes.toolbarAvater} alt="Keng" src="../../content/assets/profile-icon.png" />
+        <Avatar className={classes.toolbarAvater} alt="Keng" src={image.childImageSharp.fluid.src} />
         <Brightness7Icon onClick={onToggleClick} className={classes.themeModeButton}/>
       </Toolbar>
     </header>
