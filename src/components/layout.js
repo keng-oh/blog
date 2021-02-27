@@ -17,7 +17,7 @@ const Layout = props => {
   const { title } = props
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const initialState = {
-    darkMode: localStorage.getItem("darkMode") === null ? prefersDarkMode : (localStorage.getItem("darkMode") === 'on')
+    darkMode: window.localStorage.getItem("darkMode") === null ? prefersDarkMode : (window.localStorage.getItem("darkMode") === 'on')
   };
   const [state, dispatch] = React.useReducer(themeReducer, initialState);
   const { darkMode } = state;
