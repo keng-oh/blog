@@ -8,5 +8,7 @@ export const DispatchContext = React.createContext(() => {
 // カスタムフックの作成
 export function useToggleDarkMode() {
   const dispatch = React.useContext(DispatchContext);
-  return React.useCallback(() => dispatch({ type: 'TOGGLE_DARKMODE' }), [dispatch]);
+  return React.useCallback(() => {
+    dispatch({ type: 'TOGGLE_DARKMODE' })
+  }, [dispatch]);
 }

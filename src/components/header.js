@@ -4,8 +4,12 @@ import { makeStyles } from "@material-ui/core/styles"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
 import Avatar from "@material-ui/core/Avatar"
-import Brightness7Icon from "@material-ui/icons/Brightness7";
-// import Brightness4Icon from "@material-ui/icons/Brightness4";
+import useTheme from '@material-ui/core/styles/useTheme';
+import IconButton from "@material-ui/core/IconButton";
+import Brightness7Icon from "@material-ui/icons/Brightness7"
+import Brightness4Icon from "@material-ui/icons/Brightness4"
+
+import { useToggleDarkMode } from '../hooks/dispatchContext'
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -41,6 +45,8 @@ const useStyles = makeStyles(theme => ({
 export default function Header(props) {
   const classes = useStyles()
   const { title } = props
+  const paletteType = useTheme().palette.type;
+  const _toggleDarkMode = useToggleDarkMode()
 
   const { image } = useStaticQuery(
     graphql`
@@ -58,11 +64,6 @@ export default function Header(props) {
     `
   )
 
-  const onToggleClick = e => {
-    e.preventDefault();
-    alert("実装中ですー");
-  }
-
   return (
     <header>
       <Toolbar className={classes.toolbar}>
@@ -74,7 +75,9 @@ export default function Header(props) {
           {title}
         </Typography>
         <Avatar className={classes.toolbarAvater} alt="Keng" src={image.childImageSharp.fluid.src} />
-        <Brightness7Icon onClick={onToggleClick} className={classes.themeModeButton}/>
+        <IconButton className={classes.themeModeButton} onClick={_toggleDarkMode} >
+          {paletteType === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
+        </IconButton>
       </Toolbar>
     </header>
   )
