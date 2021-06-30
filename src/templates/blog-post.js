@@ -25,14 +25,12 @@ const useStyles = makeStyles(theme => ({
   articleInfo: { padding: theme.spacing(0), marginBottom: theme.spacing(1) },
   postContainer: { padding: theme.spacing(2) },
   postBody: {
-    fontSize: '1rem',
-    '& blockquote': {
-
-    },
-    '& a': {
+    fontSize: "1rem",
+    "& blockquote": {},
+    "& a": {
       color: theme.palette.link,
-    }
-  }
+    },
+  },
 }))
 
 const BlogPostTemplate = props => {
@@ -44,7 +42,11 @@ const BlogPostTemplate = props => {
   return (
     <>
       <SEO title={post.title} description={post.title || post.excerpt} />
-      <Layout location={props.location} title={siteTitle} sectionTitle={post.title}>
+      <Layout
+        location={props.location}
+        title={siteTitle}
+        sectionTitle={post.title}
+      >
         <article className={classes.article}>
           <Container className={classes.articleInfo}>
             <Typography
@@ -71,8 +73,11 @@ const BlogPostTemplate = props => {
               ))}
             </Typography>
           </Container>
-          <Paper className={classes.postContainer} elevation='3'>
-            <section dangerouslySetInnerHTML={{ __html: post.body }} className={classes.postBody}/>
+          <Paper className={classes.postContainer} elevation="3">
+            <section
+              dangerouslySetInnerHTML={{ __html: post.body }}
+              className={classes.postBody}
+            />
           </Paper>
         </article>
       </Layout>

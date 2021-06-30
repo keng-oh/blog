@@ -19,7 +19,7 @@ const About = props => {
         title={siteTitle}
         sectionTitle="About me"
       >
-        <Grid container justify="flex-start" alignItems="stretch" spacing={4}>
+        <Grid container justify="flex-start" alignItems="stretch">
           <Me />
         </Grid>
       </Layout>

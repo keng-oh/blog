@@ -59,7 +59,7 @@ const Bio = () => {
           About
         </Typography>
         <GatsbyLink className={classes.gatsbyLink} to="/about">
-          TODO: 自己紹介
+          自己紹介
         </GatsbyLink>
       </Grid>
       <Grid display="flex">
