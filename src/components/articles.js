@@ -3,7 +3,15 @@ import { Link } from "gatsby"
 import Moment from "react-moment"
 
 import { makeStyles } from "@material-ui/core/styles"
-import { Typography, Grid, Card, Chip, CardActionArea, CardContent, CardMedia } from "@material-ui/core"
+import {
+  Typography,
+  Grid,
+  Card,
+  Chip,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+} from "@material-ui/core"
 
 import LocalOfferIcon from "@material-ui/icons/LocalOffer"
 
@@ -36,7 +44,7 @@ const Articles = props => {
   return (
     <Grid item sm={4} className={classes.root}>
       <CardActionArea component="div" className={classes.card}>
-        <Link to={"/" + article.articlesId}>
+        <Link to={"/archives/" + article.articlesId}>
           <Card className={classes.card} raised={true}>
             <CardMedia
               className={classes.cardMedia}
@@ -56,7 +64,7 @@ const Articles = props => {
                 color="textSecondary"
                 className={classes.cardTags}
               >
-                {article.category.map((category,index) => (
+                {article.category.map((category, index) => (
                   <Chip
                     key={index}
                     icon={<LocalOfferIcon />}

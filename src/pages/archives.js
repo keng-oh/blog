@@ -7,19 +7,18 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Articles from "../components/articles"
 
-
-const Archive = props => {
+const Archives = props => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
   const articles = data.allMicrocmsArticles.nodes
 
   return (
     <>
-      <SEO title="ARCHIVE" />
+      <SEO title="ARCHIVES" />
       <Layout
         location={props.location}
         title={siteTitle}
-        sectionTitle="Archive"
+        sectionTitle="Archives"
       >
         <Grid container justify="flex-start" alignItems="stretch" spacing={4}>
           {articles.map(article => (
@@ -31,7 +30,7 @@ const Archive = props => {
   )
 }
 
-export default Archive
+export default Archives
 
 export const query = graphql`
   {

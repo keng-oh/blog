@@ -17,6 +17,15 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allMicrocmsCategories(sort: { fields: [id], order: ASC }) {
+          edges {
+            node {
+              id
+              categoriesId
+              name
+            }
+          }
+        }
       }
     `
   )
@@ -30,12 +39,28 @@ exports.createPages = async ({ graphql, actions }) => {
 
   posts.forEach((post, index) => {
     createPage({
-      path: post.node.articlesId,
+      path: `archives/${post.node.articlesId}`,
       component: path.resolve("./src/templates/blog-post.js"),
       context: {
         id: post.node.id,
         ogImagePlugin: {
           title: post.node.title,
+        },
+      },
+    })
+  })
+
+  // Create category pages.
+  const categories = result.data.allMicrocmsCategories.edges
+
+  categories.forEach((category, index) => {
+    createPage({
+      path: `category/${category.node.categoriesId}`,
+      component: path.resolve("./src/templates/category.js"),
+      context: {
+        categoryId: category.node.categoriesId,
+        ogImagePlugin: {
+          title: category.node.name,
         },
       },
     })

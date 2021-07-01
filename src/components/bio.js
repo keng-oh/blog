@@ -100,7 +100,7 @@ const Bio = () => {
               disableGutters={true}
             >
               <GatsbyLink
-                to="/.."
+                to={"/category/" + category.categoriesId}
                 className={classes.gatsbyLink}
                 key={category.categoriesId}
               >
@@ -116,9 +116,9 @@ const Bio = () => {
           gutterBottom
           className={classes.sidebarSection}
         >
-          Archive
+          Archives
         </Typography>
-        <GatsbyLink to="/archive" className={classes.gatsbyLink}>
+        <GatsbyLink to="/archives" className={classes.gatsbyLink}>
           記事一覧へ
         </GatsbyLink>
       </Grid>
