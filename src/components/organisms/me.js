@@ -1,17 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Typography from "@material-ui/core/Typography"
-import Container from "@material-ui/core/Container"
-import { makeStyles } from "@material-ui/core/styles"
-import Paper from "@material-ui/core/Paper"
+import { Typography, Container, makeStyles, Paper } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   paperWrapper: { padding: theme.spacing(0) },
   paperOutline: { padding: theme.spacing(2) },
 }))
 
-const Me = props => {
+export const Me = props => {
   const classes = useStyles()
 
   return (
@@ -25,8 +22,6 @@ const Me = props => {
     </Container>
   )
 }
-
-export default Me
 
 export const query = graphql`
   {

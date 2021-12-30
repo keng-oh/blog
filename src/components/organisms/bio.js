@@ -1,11 +1,11 @@
 import React from "react"
 import { Link as GatsbyLink, useStaticQuery, graphql } from "gatsby"
 
-import { Typography, Grid, List, ListItem } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
-
-import GitHubIcon from "@material-ui/icons/GitHub"
-import TwitterIcon from "@material-ui/icons/Twitter"
+import { Typography, Grid, List, ListItem, makeStyles } from "@material-ui/core"
+import {
+  GitHub as GitHubIcon,
+  Twitter as TwitterIcon,
+} from "@material-ui/icons"
 
 const useStyles = makeStyles(theme => ({
   sidebarSection: {

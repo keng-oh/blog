@@ -1,34 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Top } from "../components/pages"
 
-import Grid from "@material-ui/core/Grid"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Articles from "../components/articles"
-
-const BlogIndex = props => {
-  const { data } = props
-  const siteTitle = data.site.siteMetadata.title
-  const articles = data.allMicrocmsArticles.nodes
-
-  return (
-    <>
-      <SEO title="TOP" />
-      <Layout location={props.location} title={siteTitle} sectionTitle={"TOP"}>
-        <Grid container justify="flex-start" alignItems="stretch" spacing={4}>
-          {articles.map(article => (
-            <Articles key={article.articlesId} article={article} />
-          ))}
-        </Grid>
-      </Layout>
-    </>
-  )
+const IndexPage = props => {
+  console.log(props)
+  return <Top data={props.data} />
 }
 
-export default BlogIndex
+export default IndexPage
 
-export const query = graphql`
+export const pageQuery = graphql`
   {
     allMicrocmsArticles(sort: { fields: [createdAt], order: DESC }, limit: 9) {
       nodes {

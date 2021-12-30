@@ -1,34 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Category } from "../components/pages"
 
-import Grid from "@material-ui/core/Grid"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Articles from "../components/articles"
-
-const CategoryTemplate = props => {
-  const articles = props.data.allMicrocmsArticles.nodes
-  const siteTitle = props.data.site.siteMetadata.title
-
-  return (
-    <>
-      <SEO title={"CATEGORY"} />
-      <Layout
-        location={props.location}
-        title={siteTitle}
-        sectionTitle={"Category"}
-      >
-        <Grid container justify="flex-start" alignItems="stretch" spacing={4}>
-          {articles.map(article => (
-            <Articles key={article.articlesId} article={article} />
-          ))}
-        </Grid>
-      </Layout>
-    </>
-  )
-}
-
+const CategoryTemplate = props => <Category data={props.data} />
 export default CategoryTemplate
 
 export const query = graphql`

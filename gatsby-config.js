@@ -41,6 +41,11 @@ module.exports = {
     siteUrl: `https://ken-g.dev/`,
   },
   plugins: [
+    `gatsby-plugin-material-ui`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-google-adsense`,
       options: {
@@ -69,9 +74,6 @@ module.exports = {
         name: `assets`,
       },
     },
-    `gatsby-plugin-material-ui`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -84,8 +86,6 @@ module.exports = {
         icon: `content/assets/profile-icon.png`,
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {

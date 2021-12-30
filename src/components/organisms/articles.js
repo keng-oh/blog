@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import Moment from "react-moment"
 
-import { makeStyles } from "@material-ui/core/styles"
 import {
   Typography,
   Grid,
@@ -11,9 +10,10 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  makeStyles,
 } from "@material-ui/core"
 
-import LocalOfferIcon from "@material-ui/icons/LocalOffer"
+import { LocalOffer as LocalOfferIcon } from "@material-ui/icons"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Articles = props => {
+export const Articles = props => {
   const classes = useStyles()
   const { article } = props
 
@@ -85,5 +85,3 @@ const Articles = props => {
     </Grid>
   )
 }
-
-export default Articles

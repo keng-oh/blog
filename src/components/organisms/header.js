@@ -1,15 +1,19 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { makeStyles } from "@material-ui/core/styles"
-import Toolbar from "@material-ui/core/Toolbar"
-import Typography from "@material-ui/core/Typography"
-import Avatar from "@material-ui/core/Avatar"
-import useTheme from '@material-ui/core/styles/useTheme';
-import IconButton from "@material-ui/core/IconButton";
-import Brightness7Icon from "@material-ui/icons/Brightness7"
-import Brightness4Icon from "@material-ui/icons/Brightness4"
+import {
+  makeStyles,
+  Toolbar,
+  Typography,
+  Avatar,
+  useTheme,
+  IconButton,
+} from "@material-ui/core"
+import {
+  Brightness7 as Brightness7Icon,
+  Brightness4 as Brightness4Icon,
+} from "@material-ui/icons"
 
-import { useToggleDarkMode } from '../hooks/dispatchContext'
+import { useToggleDarkMode } from "../../hooks"
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -27,25 +31,25 @@ const useStyles = makeStyles(theme => ({
     bottom: "0",
     left: "0",
     right: "0",
-    margin: "auto"
+    margin: "auto",
   },
   toolbarAvater: {
     position: "absolute",
     right: "0",
-    '& > img': {
-      marginBottom: '0',
-    }
+    "& > img": {
+      marginBottom: "0",
+    },
   },
   themeModeButton: {
     position: "absolute",
-    right: "3rem"
-  }
+    right: "3rem",
+  },
 }))
 
-export default function Header(props) {
+export const Header = props => {
   const classes = useStyles()
   const { title } = props
-  const paletteType = useTheme().palette.type;
+  const paletteType = useTheme().palette.type
   const _toggleDarkMode = useToggleDarkMode()
 
   const { image } = useStaticQuery(
@@ -74,9 +78,16 @@ export default function Header(props) {
         >
           {title}
         </Typography>
-        <Avatar className={classes.toolbarAvater} alt="Keng" src={image.childImageSharp.fluid.src} />
-        <IconButton className={classes.themeModeButton} onClick={_toggleDarkMode} >
-          {paletteType === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
+        <Avatar
+          className={classes.toolbarAvater}
+          alt="Keng"
+          src={image.childImageSharp.fluid.src}
+        />
+        <IconButton
+          className={classes.themeModeButton}
+          onClick={_toggleDarkMode}
+        >
+          {paletteType === "dark" ? <Brightness4Icon /> : <Brightness7Icon />}
         </IconButton>
       </Toolbar>
     </header>
