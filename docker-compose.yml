@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  gatsby:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NETLIFY_API_KEY=${NETLIFY_API_KEY}
+        - NETLIFY_SERVICE_ID=${NETLIFY_SERVICE_ID}
+    container_name: gatsby
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.cache
+    env_file:
+      - .env.development
+    environment:
+      - NODE_ENV=development

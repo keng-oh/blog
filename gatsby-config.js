@@ -108,13 +108,13 @@ module.exports = {
         endpoint: "categories",
       },
     },
-    {
-      resolve: `@akr4/gatsby-plugin-og-image`,
-      options: {
-        siteUrl: `https://ken-g.dev/`,
-        render: renderOgImage,
-        concurrency: 10,
-      },
-    },
+    // {
+    //   resolve: `@akr4/gatsby-plugin-og-image`,
+    //   options: {
+    //     siteUrl: `https://ken-g.dev/`,
+    //     render: renderOgImage,
+    //     concurrency: 10,
+    //   },
+    // },
   ],
 }
