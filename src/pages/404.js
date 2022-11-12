@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { NotFound } from "../components/pages"
 
-const NotFoundPage = props => <NotFound data={props.data} />
+const NotFoundPage = props => <></>
+
 export default NotFoundPage
 
 export const pageQuery = graphql`

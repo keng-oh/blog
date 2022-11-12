@@ -1,38 +1,23 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { Top } from "../components/pages"
+import React from 'react';
+import { graphql } from 'gatsby';
 
-const IndexPage = props => {
-  console.log(props)
-  return <Top data={props.data} />
-}
+import { Layout } from '../components';
 
-export default IndexPage
+const IndexPage = ({ data }) => {
+  console.log(data);
+  return <Layout></Layout>;
+};
+
+export default IndexPage;
 
 export const pageQuery = graphql`
   {
-    allMicrocmsArticles(sort: { fields: [createdAt], order: DESC }, limit: 9) {
+    allGraphCmsPost(sort: { fields: date, order: DESC }) {
       nodes {
         id
+        excerpt
+        slug
         title
-        description
-        thumbnail {
-          url
-        }
-        category {
-          id
-          name
-        }
-        articlesId
-        body
-        publishedAt
-      }
-    }
-    allMicrocmsCategories {
-      nodes {
-        id
-        categoriesId
-        name
       }
     }
     site {
@@ -41,4 +26,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
